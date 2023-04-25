@@ -1,4 +1,7 @@
+using UnityEngine;
+
 public interface IMovable
 {
-    public void Movement();
+    //targetPosition: The position to move to
+    public void Movement(Vector2 direction, float speed, Vector2 targetPosition);
 }

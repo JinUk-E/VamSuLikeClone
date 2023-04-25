@@ -1,18 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerMovement : MonoBehaviour,IMovable
 {
-    // Start is called before the first frame update
-    void Start()
+    public void Movement(Vector2 direction, float speed, Vector2 targetPosition)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        //Move the player
+        transform.position = Vector2.MoveTowards(transform.position, targetPosition, speed * Time.deltaTime);
+        //Rotate the player
+        transform.rotation = Quaternion.LookRotation(Vector3.forward, direction);
     }
 }

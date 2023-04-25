@@ -1,25 +1,32 @@
-# VamSuLikeClone
+# VamSurLikeClone
 Clone Game to Vampire Survival Like with GoldMetal
 
-- 스크립트 구조
+Test for uniRx Script and Git
+
+- Script Information
   - Library
     - ExtensionMethod
   - Interface
     - IAttack
     - IMovable
     - ISpawnable
+    - IHealth
   - System
     - Sound
-    - Stage
     - Level
     - Life
     - Spawn
   - Characters
-    - PlayerMovement
-    - EnemyMovement
-    - MeleeAttack
-    - RangeAttack
-    - MagicAttack
+    - Movement
+      - PlayerMovement
+      - EnemyMovement
+    - Attack
+      - MeleeAttack
+      - RangeAttack
+      - MagicAttack
   - Model
+    - Unit
+      - Enemy
+      - Player
     - EnemyModel
     - SpawnPointModel
