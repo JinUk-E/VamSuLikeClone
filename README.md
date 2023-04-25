@@ -6,6 +6,7 @@ Test for uniRx Script and Git
 - Script Information
   - Library
     - ExtensionMethod
+    - BasicEnum
   - Interface
     - IAttack
     - IMovable
@@ -26,7 +27,7 @@ Test for uniRx Script and Git
       - MagicAttack
   - Model
     - Unit
-      - Enemy
-      - Player
-    - EnemyModel
+      - EnemyType
+      - PlayerType
+    - EnemiesModel
     - SpawnPointModel
