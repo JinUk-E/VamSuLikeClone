@@ -1,7 +1,9 @@
 # VamSurLikeClone
 Clone Game to Vampire Survival Like with GoldMetal
 
-Test for uniRx Script and Git
+Use Programing Skill is uniRx and GitHub, ObjectPooling, StateMachine, StatePattern, etc...<br> 
+This Game is LogLike Game with Vampire Survival Like <br>
+Therefore, This Games Goal is Survive as long as possible and get high score
 
 - Script Information
   - Library
@@ -17,6 +19,11 @@ Test for uniRx Script and Git
       - void Spawn()
     - IHealth
       - void TakeDamage(int damage)
+      - void Die()
+    - IState
+      - void Enter()
+      - void Execute()
+      - void Exit()
 
   - System
     - Pooling
@@ -31,7 +38,7 @@ Test for uniRx Script and Git
         - awake `Initialize` pool with Dictionary of `ObjectPool`
         - `Get` object from pool from `Dictionary`
         - `Return` object to pool from `Dictionary`
-
+  
     - Sound
       - Create `Sound` class of singleton
       - Has `AudioSource` for playing sound
@@ -45,6 +52,9 @@ Test for uniRx Script and Git
     - Life
   
     - Spawn
+      - Has Spawn `Timer`
+      - Has `float` for `SpawnDelay`
+      - Has `SpawnPointModel` for `SpawnPoint`
   
   - UI
     - HealthBar
@@ -66,7 +76,7 @@ Test for uniRx Script and Git
     - Pause
       - Has `TextMeshPro` for pause
       - `Set` pause text with `string` value
-  
+
   - Characters
     - Movement
       - PlayerMovement
@@ -106,12 +116,12 @@ Test for uniRx Script and Git
   
   - Model
     - Unit
-      - EnemyType
+      - EnemyInfo
         - Has `Attack` for Attack Type
         - Has `Movement` for Movement Type
         - Has `Health` for Health
         - Has `Spawn` for Spawn Position
-      - PlayerType
+      - PlayerInfo
         - Has `Attack` for Attack Type
         - Has `Health` for Health
     - EnemiesModel
