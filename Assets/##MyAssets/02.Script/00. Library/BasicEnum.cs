@@ -25,5 +25,10 @@ namespace RNBExtensions
             Ice,
             Poison
         }
+        
+        public enum MonsterType
+        {
+            Monster1, Monster2
+        }
     }
 }
