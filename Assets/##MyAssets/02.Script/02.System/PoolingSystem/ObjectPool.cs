@@ -16,6 +16,7 @@ public class ObjectPool : MonoBehaviour
             var obj = Instantiate(prefab, parent);
             obj.SetActive(false);
         }
+        if (limitCount.Equals(0)) limitCount = 100000;
     }
      
     public GameObject GetObject(Transform spawnPoint)
