@@ -9,7 +9,34 @@ Therefore, This Games Goal is Survive as long as possible and get high score
   - Library
     - ExtensionMethod
     - BasicEnum
+    - Manager
+      - Pooling
+        - ObjectPool
+          - Has GameObject `prefab` and `parent` for pooling
+          - Awake `Initialize` pool with `prefab` and `parent`
+          - `Get` object from pool
+          - `Return` object to pool
 
+        - Pooling
+          - Has `Dictionary` for pooling
+          - awake `Initialize` pool with Dictionary of `ObjectPool`
+          - `Get` object from pool from `Dictionary`
+          - `Return` object to pool from `Dictionary`
+
+      - Sound
+        - Create `Sound` class of singleton
+        - Has `AudioSource` for playing sound
+        - `Play` sound
+        - `Stop` sound
+        - set Sound `Volume`
+        - set Sound `Pitch`
+      - StateMachine
+        - State
+          - Has `Dictionary` for state
+          - Has `State` for current state
+          - Has `State` for previous state
+          - Has `State` for next state
+        
   - Interface
     - IAttack
       - void Attack()
@@ -20,33 +47,8 @@ Therefore, This Games Goal is Survive as long as possible and get high score
     - IHealth
       - void TakeDamage(int damage)
       - void Die()
-    - IState
-      - void Enter()
-      - void Execute()
-      - void Exit()
-
+  
   - System
-    - Pooling
-      - ObjectPool
-        - Has GameObject `prefab` and `parent` for pooling
-        - Awake `Initialize` pool with `prefab` and `parent`
-        - `Get` object from pool
-        - `Return` object to pool
-        
-      - Pooling
-        - Has `Dictionary` for pooling
-        - awake `Initialize` pool with Dictionary of `ObjectPool`
-        - `Get` object from pool from `Dictionary`
-        - `Return` object to pool from `Dictionary`
-  
-    - Sound
-      - Create `Sound` class of singleton
-      - Has `AudioSource` for playing sound
-      - `Play` sound
-      - `Stop` sound
-      - set Sound `Volume`
-      - set Sound `Pitch` 
-  
     - Level
   
     - Life
@@ -104,13 +106,11 @@ Therefore, This Games Goal is Survive as long as possible and get high score
         - Has `float` for attack range
         - Has `float` for attack damage
         - Has `float` for attack delay
-        - Has `float` for attack delay timer
         - Has `type` for attack type
       - MagicAttack
         - Has `float` for attack range
         - Has `float` for attack damage
         - Has `float` for attack delay
-        - Has `float` for attack delay timer
         - Has `type` for attack type
         - Has `type` for attack element
   

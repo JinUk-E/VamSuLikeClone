@@ -1,11 +1,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SoundSystem
+public class SoundManager
 {
     // sound system singleton
-    private static SoundSystem instance;
-    public static SoundSystem Instance => instance ?? (instance = new SoundSystem());
+    private static SoundManager instance;
+    public static SoundManager Instance => instance ?? (instance = new SoundManager());
     
     // sound list
     private Dictionary<string, AudioClip> soundList = new Dictionary<string, AudioClip>();
@@ -14,7 +14,7 @@ public class SoundSystem
     private AudioSource audioSource;
     
     // sound system constructor
-    private SoundSystem()
+    private SoundManager()
     {
         // create audio source
         audioSource = new GameObject("SoundSystem").AddComponent<AudioSource>();

@@ -26,9 +26,12 @@ namespace RNBExtensions
             Poison
         }
         
-        public enum MonsterType
+        public enum State
         {
-            Monster1, Monster2
+            Idle,
+            Move,
+            Attack,
+            Die
         }
     }
 }

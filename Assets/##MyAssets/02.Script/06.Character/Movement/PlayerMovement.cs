@@ -9,4 +9,14 @@ public class PlayerMovement : MonoBehaviour,IMovable
         //Rotate the player
         transform.rotation = Quaternion.LookRotation(Vector3.forward, direction);
     }
+
+    private void Update()
+    {
+        //Get the input
+        var input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+        //Get the target position
+        var targetPosition = transform.position + new Vector3(input.x, input.y, 0);
+        //Move the player
+        Movement(input, 5, targetPosition);
+    }
 }
