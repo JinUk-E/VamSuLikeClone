@@ -30,6 +30,6 @@ public class PoolingSystem : MonoBehaviour
           foreach (var model in objectPool) poolDictionary.Add(model.name, model);
      }
 
-     public GameObject GetObject(string name, Transform spawnPoint) => poolDictionary[name].GetObject(spawnPoint);
-     public void ReturnObject(string name, GameObject obj) => poolDictionary[name].ReturnObject(obj);
+     public GameObject GetObject(string objectName, Transform spawnPoint) => poolDictionary[objectName].GetObject(spawnPoint);
+     public void ReturnObject(string objectName, GameObject obj) => poolDictionary[objectName].ReturnObject(obj);
 }
