@@ -1,9 +1,10 @@
-using UnityEngine;
+using RNBExtensions;
 
 public class MagicAttack : AbstractAttack
 {
     protected override void AttackImpl()
     {
-        Debug.Log("Magic Attack");
+        attackType = BasicEnum.AttackType.Magic;
+        
     }
 }

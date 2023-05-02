@@ -1,7 +1,8 @@
+using UniRx;
 using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    [SerializeField] private PlayerMovement playerMovement;
-    
+    [field: SerializeField] public AbstractAttack Attack { get; set; }
+    [field: SerializeField] public ReactiveProperty<float> health { get; set; }
 }

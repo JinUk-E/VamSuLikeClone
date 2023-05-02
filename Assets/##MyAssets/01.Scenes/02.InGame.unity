@@ -487,9 +487,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c42e939c57d9a654c864b58d21ecb607, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  poolModel:
-  - {fileID: 1350085677}
-  - {fileID: 573661845}
+  objectPool: []
 --- !u!1 &960015130
 GameObject:
   m_ObjectHideFlags: 0
@@ -5249,20 +5247,20 @@ CompositeCollider2D:
   m_ColliderPaths:
   - m_Collider: {fileID: 1451678352}
     m_ColliderPaths:
-    - - X: 110000000
-        Y: 100000000
-      - X: -100000000
-        Y: 100000000
-      - X: -100000000
-        Y: -100000000
-      - X: 110000000
-        Y: -100000000
+    - - X: -95250000
+        Y: 95250008
+      - X: -95250000
+        Y: -95250000
+      - X: 104750000
+        Y: -95250000
+      - X: 104750000
+        Y: 95250008
   m_CompositePaths:
     m_Paths:
-    - - {x: 10.99997, y: -10}
-      - {x: 10.99997, y: 10}
-      - {x: -10, y: 9.99997}
-      - {x: -9.99997, y: -10}
+    - - {x: 10.474971, y: -9.525001}
+      - {x: 10.474971, y: 9.525001}
+      - {x: -9.525001, y: 9.524971}
+      - {x: -9.52497, y: -9.525001}
   m_VertexDistance: 0.0005
   m_OffsetDistance: 0.00005
 --- !u!50 &1451678351
@@ -5538,7 +5536,7 @@ Grid:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2032161725}
   m_Enabled: 1
-  m_CellSize: {x: 1, y: 1, z: 0}
+  m_CellSize: {x: 0.95, y: 0.95, z: 0}
   m_CellGap: {x: 0, y: 0, z: 0}
   m_CellLayout: 0
   m_CellSwizzle: 0
