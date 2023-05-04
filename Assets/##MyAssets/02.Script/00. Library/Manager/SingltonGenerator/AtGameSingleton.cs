@@ -1,7 +1,7 @@
 using RNBUtil;
 using UnityEngine;
 
-public class AtGameSingleton<T> : MonoBehaviour where T: MonoBehaviour
+public class AtGameSingleton<T> : MonoBehaviour where T: AtGameSingleton<T>
 {
     // GameSingleton 싱글톤
     protected static T instance;
@@ -19,4 +19,7 @@ public class AtGameSingleton<T> : MonoBehaviour where T: MonoBehaviour
         // 파괴불가 처리
         DontDestroyOnLoad(gameObject);
     }
+    
+    // 씬이 종료될 때 싱글톤을 파괴
+    private void ApplicationQuit() => instance = null;
 }

@@ -1,7 +1,7 @@
 using RNBUtil;
 using UnityEngine;
 
-public class AtSceneSingleton<T> : MonoBehaviour where T : MonoBehaviour
+public class AtSceneSingleton<T> : MonoBehaviour where T : AtSceneSingleton<T>
 {
     // SceneSingleton 싱글톤
     public static T Instance { get; private set; }
