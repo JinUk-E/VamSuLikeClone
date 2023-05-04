@@ -1,27 +1,29 @@
-using RNBExtensions;
-using UniRx;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class EnemyPresenter : MonoBehaviour
 {
-    [SerializeField] private Enemy model;
-    [SerializeField] private EnemyMovement move;
-    [SerializeField] private Image healthBar;
+    private Enemy _model;
+    private EnemyMovement _move;
+    private Image _healthBar;
+    private PlayerPresetner _player;
     private void Awake()
     {
-        model = GetComponent<Enemy>();
-        move = GetComponent<EnemyMovement>();
+        _model = GetComponent<Enemy>();
+        _move = GetComponent<EnemyMovement>();
     }
     
     private void Start()
     {
-        model.Attack.Subscribe(attack => attack.Attack());
-        model.health.Subscribe(health => healthBar.fillAmount = health / 100.0f);
-        model.State = BasicEnum.State.Idle;
+        
+        
+
     }
     
-    
-    
-    
+    // enemy movement setting to calculate distance for player and enemy with uniRx
+    private void AIMove()
+    {
+        // calculate distance for player and enemy
+        var distance = Vector2.Distance(_player.transform.position, transform.position);
+    }
 }
