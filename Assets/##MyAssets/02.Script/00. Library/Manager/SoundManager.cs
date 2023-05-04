@@ -1,32 +1,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SoundManager
+public class SoundManager : AtGameSingleton<SoundManager>
 {
-    // sound system singleton
-    private static SoundManager instance;
     public static SoundManager Instance => instance ?? (instance = new SoundManager());
     
     // sound list
-    private Dictionary<string, AudioClip> soundList = new Dictionary<string, AudioClip>();
+    private Dictionary<string, AudioClip> soundList = new();
     
     // sound source
-    private AudioSource audioSource;
-    
-    // sound system constructor
-    private SoundManager()
-    {
-        // create audio source
-        audioSource = new GameObject("SoundSystem").AddComponent<AudioSource>();
-        audioSource.playOnAwake = false;
-        audioSource.loop = false;
-        audioSource.volume = 1f;
-        audioSource.spatialBlend = 0f;
-        audioSource.dopplerLevel = 0f;
-        audioSource.rolloffMode = AudioRolloffMode.Linear;
-        audioSource.minDistance = 1f;
-        audioSource.maxDistance = 500f;
-    }
+    private AudioSource audioSource = new();
     
     // add sound
     public void AddSound(string name, AudioClip audioClip) => soundList.Add(name, audioClip);
@@ -49,5 +32,6 @@ public class SoundManager
     // set sound pitch
     public void SetPitch(float pitch) => audioSource.pitch = pitch;
     
-    
+    // Sound Dictionary Clear
+    public void ClearSoundList() => soundList.Clear();
 }

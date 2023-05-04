@@ -6,7 +6,7 @@ public class PlayerMovement : MonoBehaviour,IMovable
     {
         //Move the player
         transform.position = Vector2.MoveTowards(transform.position, direction, speed * Time.deltaTime);
-        //Rotate the player
-        transform.rotation = Quaternion.LookRotation(Vector3.forward, direction);
+        var quaternionY = direction.Equals(Vector2.right) ? 0 : 180;
+        transform.rotation = Quaternion.Euler(0, quaternionY, 0);
     }
 }

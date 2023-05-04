@@ -3,13 +3,13 @@ using UnityEngine;
 public class PlayerPresetner : MonoBehaviour
 {
     [SerializeField] private PlayerMovement playerMovement;
-    [SerializeField] private AbstractAttack playerAttack;
+    [SerializeField] private Player playerModel;
     [SerializeField] private float moveSpeed;
     // Player Controller setting with Update
     private void Update()
     {
         // Player Controller
-        if (Input.GetKeyDown(KeyCode.Space)) playerAttack.Attack();
+        if (Input.GetKeyDown(KeyCode.Space)) playerModel.Attack.Attack();
         // input key down with w,a,s,d
         InputMoveKey();
     }
@@ -22,10 +22,6 @@ public class PlayerPresetner : MonoBehaviour
             Input.GetKey(KeyCode.S) ? Vector2.down :
             Input.GetKey(KeyCode.D) ? Vector2.right : Vector2.zero;
         // if input key down
-        if (inputKey != Vector2.zero)
-        {
-            // player movement
-            playerMovement.Movement(inputKey, moveSpeed);
-        }
+        if (inputKey != Vector2.zero) playerMovement.Movement(inputKey, moveSpeed);
     }
 }

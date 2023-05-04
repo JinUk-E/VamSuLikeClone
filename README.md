@@ -10,34 +10,6 @@ Therefore, This Games Goal is Survive as long as possible and get high score
     - ExtensionMethod
     - BasicEnum
     - Manager
-      - Pooling
-        - ObjectPool
-          - Has GameObject `prefab` and `parent` for pooling
-          - Awake `Initialize` pool with `prefab` and `parent`
-          - `Get` object from pool
-          - `Return` object to pool
-
-        - Pooling
-          - Has `Dictionary` for pooling
-          - awake `Initialize` pool with Dictionary of `ObjectPool`
-          - `Get` object from pool from `Dictionary`
-          - `Return` object to pool from `Dictionary`
-
-      - Sound
-        - Create `Sound` class of singleton
-        - Has `AudioSource` for playing sound
-        - `Play` sound
-        - `Stop` sound
-        - set Sound `Volume`
-        - set Sound `Pitch`
-      
-      - StateMachine
-        - State
-          - Has `Dictionary` for state
-          - Has `State` for current state
-          - Has `State` for previous state
-          - Has `State` for next state
-        
   - Interface
     - IAttack
       - void Attack()
@@ -65,7 +37,16 @@ Therefore, This Games Goal is Survive as long as possible and get high score
       - Has `SpawnModel` for `SpawnTime`
       - Has `SpawnModel` for `MaxSpawnCount`
       - Has `SpawnPointModel` for `SpawnPoint`
-  
+    
+    - Score
+      - Has `ScoreModel` for `Score`
+      - Has `ScoreModel` for `CurrentScore`
+      - Has `ScoreModel` for `MaxScore`
+      - Calculate `Score` with `CurrentScore` and `MaxScore`
+
+    - LoadingSystem
+      - Has `SceneName` for `CurrentSceneName`
+
   - UI
     - HealthBar
       - Has `Slider` for health bar
@@ -155,9 +136,17 @@ Therefore, This Games Goal is Survive as long as possible and get high score
       - Has `float` for SpawnTime
       - Has `int` for MaxSpawnCount
 
-데미지의 처리 주체...
-몬스터의 경우 -> 몬스터 콜라이더가 플레이어와 충돌 처리 전송 -> 플레이어 체력 깎기
-플레이어 -> 무기의 콜라이더가 몬스터와 충돌 처리 전송 -> 몬스터 체력 깎기
+    - ScoreModel
+      - Has `int` for Score
+      - Has `int` for CurrentScore
+      - Has `int` for MaxScore
 
-데미지 계산식 처리 -> Health Bar Presenter 가 subject;
+[//]: # (데미지의 처리 주체...)
+
+[//]: # (몬스터의 경우 -> 몬스터 콜라이더가 플레이어와 충돌 처리 전송 -> 플레이어 체력 깎기)
+
+[//]: # (플레이어 -> 무기의 콜라이더가 몬스터와 충돌 처리 전송 -> 몬스터 체력 깎기)
+
+[//]: # ()
+[//]: # (데미지 계산식 처리 -> Health Bar Presenter 가 subject;)
 

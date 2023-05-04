@@ -1,18 +1,25 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
+using UniRx;
 using UnityEngine;
 
 public class SpawnSystem : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private SpawnPointModel spawnPointModel;
+    // create singleton
+    private void SpawnMonster()
     {
-        
+        // get random spawn point
+        var spawnPoint = spawnPointModel.GetRandomSpawnPoint().transform;
+        // get random monster
+        PoolingSystem.Instance.GetObject("Monster1", spawnPoint);
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    
+    // Spawn Monster every 3 seconds until the game is over or score is 100 with uniRx
+    // private void Start()
+    // {
+    //     Observable.Interval(TimeSpan.FromSeconds(3))
+    //         .TakeUntil(Observable.EveryUpdate().Where(_ => GameManager.Instance.IsGameOver || GameManager.Instance.Score >= 100))
+    //         .Subscribe(_ => SpawnMonster());
+    // }
+    
 }
