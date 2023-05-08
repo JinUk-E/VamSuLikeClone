@@ -11,19 +11,16 @@ public class EnemyPresenter : MonoBehaviour
     {
         _model = GetComponent<Enemy>();
         _move = GetComponent<EnemyMovement>();
+        _player = FindObjectOfType<PlayerPresetner>();
+        _healthBar = GetComponentInChildren<Image>();
     }
     
-    private void Start()
-    {
-        
-        
-
-    }
-    
-    // enemy movement setting to calculate distance for player and enemy with uniRx
     private void AIMove()
     {
         // calculate distance for player and enemy
         var distance = Vector2.Distance(_player.transform.position, transform.position);
+        if (distance < 1) _model.Attack.Attack();
+        else if (distance < 5) _move.Movement(_player.transform.position, _model.Speed);
+        else _move.Movement(_model.SpawnPoint.position, _model.Speed);
     }
 }
