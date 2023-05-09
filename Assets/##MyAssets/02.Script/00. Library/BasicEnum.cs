@@ -31,7 +31,7 @@ namespace RNBExtensions
             Idle,
             Move,
             Attack,
-            Die
+            Dead
         }
     }
 }

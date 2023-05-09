@@ -23,11 +23,4 @@ public class UIContainer : MonoBehaviour, IContainer
         PopContainer();
         return container;
     }
-
-    public UIContainer GetCurrentContainer()
-    {
-        if (_containerHistory.Count == 0) return null;
-        var container = _containerHistory.Peek() as UIContainer;
-        return container;
-    }
 }

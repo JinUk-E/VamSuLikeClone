@@ -1,5 +1,17 @@
+using UnityEngine;
+
 public class PageView : UIView
 {
-    public override void OnEnter() => Next(name);
-    public override void OnExit() => Back();
+    [SerializeField] private UIEffector effectorManager;
+    public override void OnEnter()
+    {
+        Next(name);
+        effectorManager.EffectStart(true);
+    }
+
+    public override void OnExit()
+    {
+        Back();
+        effectorManager.EffectStart(false);
+    }
 }
