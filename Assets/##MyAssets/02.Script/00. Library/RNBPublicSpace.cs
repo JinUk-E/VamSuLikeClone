@@ -7,6 +7,7 @@ using System.Linq;
 using ExcelDataReader;
 using RNBExtensions;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -233,11 +234,20 @@ namespace RNBExtensions
     {
         #region public
         
-        // vector2 is ref type
+        // vector2 is call by reference type, Therefore, it is not necessary to return the value
         public static void SetX(this ref Vector2 source, float x) => source.x = x;
         public static void SetY(this ref Vector2 source, float y) => source.y = y;
-        
-        // vector3 is value type
+
+        /// <summary>
+        /// Calculate the center of the Vector2 array for the perimeter of a rectangle and circle-like shape
+        /// </summary>
+        /// <param name="source"> It is Vector2 array</param>
+        /// <returns> return to Focus between maximum and minimum for x,y</returns>
+        public static Vector2 CalculateCenter(this Vector2[] source) =>
+            new((source.Max(x => x.x) + source.Min(x => x.x)) * .5f,
+                (source.Max(x => x.y) + source.Min(x => x.y)) * .5f);
+
+        // vector3 is call by value type, Therefore, it is necessary to return the value
         public static Vector3 SetX(this Vector3 source, float x)
         {
             source.x = x;
@@ -255,7 +265,18 @@ namespace RNBExtensions
             source.z = z;
             return source;
         }
-
+        
+        public static Vector3 CalculateCenter(this Vector3[] source)
+        {
+            var xList = source.Select(x => x.x).ToList();
+            var yList = source.Select(x => x.y).ToList();
+            var zList = source.Select(x => x.z).ToList();
+            
+            return new Vector3((xList.Max() + xList.Min()) * .5f,
+                (yList.Max() + yList.Min()) * .5f,
+                (zList.Max() + zList.Min()) * .5f);
+        }
+        
         #endregion
        
     }
