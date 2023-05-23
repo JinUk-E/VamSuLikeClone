@@ -7,7 +7,6 @@ using System.Linq;
 using ExcelDataReader;
 using RNBExtensions;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -312,19 +311,19 @@ namespace RNBUtil
         #endregion
 
         #region public
-        public static void Logger(string message,DebugType debugType)
+        public static void Logger<T>(T message,DebugType debugType) 
         {
             if(!Application.isEditor) return;
             switch (debugType)
             {
                 case DebugType.Log:
-                    Log(message);
+                    Log($"{message}");
                     break;
                 case DebugType.LogWarning:
-                    LogWarning(message);
+                    LogWarning($"{message}");
                     break;
                 case DebugType.LogError:
-                    LogError(message);
+                    LogError($"{message}");
                     break;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(debugType), debugType, "This DebugType is not supported.");
@@ -340,7 +339,8 @@ namespace RNBUtil
 
         #endregion
     }
-    
+
+
     static class IOEx
     {
         #region private

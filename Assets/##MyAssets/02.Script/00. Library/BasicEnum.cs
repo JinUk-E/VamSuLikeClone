@@ -2,14 +2,7 @@ namespace RNBExtensions
 {
     public class BasicEnum
     {
-        public enum Direction
-        {
-            Up,
-            Down,
-            Left,
-            Right
-        }
-    
+       
         public enum AttackType
         {
             None,
@@ -32,6 +25,13 @@ namespace RNBExtensions
             Move,
             Attack,
             Dead
+        }
+        
+        public enum SpawnType
+        {
+            Monster1,
+            Monster2,
+            Monster3
         }
     }
 }

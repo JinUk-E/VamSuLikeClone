@@ -1,3 +1,4 @@
+using System.Linq;
 using RNBExtensions;
 using UnityEngine;
 
@@ -6,7 +7,6 @@ public class ObjectPool : MonoBehaviour
     [SerializeField] private GameObject prefab;
     [SerializeField] private Transform parent;
     [SerializeField] private int count;
-    [SerializeField] private int limitCount;
     
     private void Awake()
     {
@@ -16,13 +16,12 @@ public class ObjectPool : MonoBehaviour
             var obj = Instantiate(prefab, parent);
             obj.SetActive(false);
         }
-        if (limitCount.Equals(0)) limitCount = 100000;
     }
      
-    public GameObject GetObject(Transform spawnPoint)
+    public GameObject GetObject(Transform spawnPoint, int limit = 0)
     {
         // 풀에 넣을 때, 풀이 가득 찼을 때
-        if (parent.childCount >= limitCount) return null;
+        if (parent.Cast<Transform>().Count(child => child.gameObject.activeSelf) >= limit) return null;
         // 풀에서 꺼내기
         foreach (Transform child in parent)
         {
@@ -45,4 +44,5 @@ public class ObjectPool : MonoBehaviour
         obj.SetActive(false);
         obj.transform.SetParent(parent);
     }
+
 }

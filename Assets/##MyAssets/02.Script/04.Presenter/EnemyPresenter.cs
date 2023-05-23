@@ -1,26 +1,48 @@
+using System;
+using UniRx;
+using UniRx.Triggers;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class EnemyPresenter : MonoBehaviour
 {
-    private Enemy _model;
-    private EnemyMovement _move;
-    private Image _healthBar;
-    private PlayerPresetner _player;
-    private void Awake()
+    [SerializeField] private Enemy model;
+    [SerializeField] private EnemyMovement move;
+    [SerializeField] private Image healthBar;
+    [SerializeField] private PlayerPresenter player;
+
+    private void Awake() => player = FindObjectOfType<PlayerPresenter>();
+
+    private void Start()
     {
-        _model = GetComponent<Enemy>();
-        _move = GetComponent<EnemyMovement>();
-        _player = FindObjectOfType<PlayerPresetner>();
-        _healthBar = GetComponentInChildren<Image>();
+        this.UpdateAsObservable()
+            .Where(_ => model.health.Value >= 0)
+            .Subscribe(_ => AIMove())
+            .AddTo(this);
+        
+        // this.UpdateAsObservable()
+        //     .Where(_ => model.health.Value >= 0)
+        //     .Subscribe(_ => healthBar.fillAmount = model.health.Value / 100f)
+        //     .AddTo(this);
+        
+        // play attack animation when player is in attack range and 2 seconds later, attack to player
+        this.UpdateAsObservable()
+            .Where(_ => model.health.Value >= 0)
+            .Where(_ => Vector2.Distance(transform.position, player.transform.position) <= 1)
+            .Delay(TimeSpan.FromSeconds(2))
+            .Subscribe(_ => AIAttack())
+            .AddTo(this);
     }
     
     private void AIMove()
     {
         // calculate distance for player and enemy
-        var distance = Vector2.Distance(_player.transform.position, transform.position);
-        if (distance < 1) _model.Attack.Attack();
-        else if (distance < 5) _move.Movement(_player.transform.position, _model.Speed);
-        else _move.Movement(_model.SpawnPoint.position, _model.Speed);
+        var playerPosition = player.transform.position;
+        var currentPosition = transform.position;
+        var distance = Mathf.Sqrt((playerPosition.x - currentPosition.x) * (playerPosition.x - currentPosition.x) +
+                                  (playerPosition.y - currentPosition.y) * (playerPosition.y - currentPosition.y));
+        if (distance > 1) move.Movement((playerPosition - currentPosition).normalized, model.Speed);
     }
+
+    private void AIAttack() => model.Attack.Attack();
 }

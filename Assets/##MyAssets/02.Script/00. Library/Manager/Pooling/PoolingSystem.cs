@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using RNBExtensions;
 using RNBUtil;
 using UnityEngine;
@@ -26,9 +27,10 @@ public class PoolingSystem : AtGameSingleton<PoolingSystem>
                
      }
 
-     public GameObject GetObject(string objectName, Transform spawnPoint)
+     public GameObject GetObject(string objectName, Transform spawnPoint, int limitCount = 0)
+   
      {
-          if (_poolDictionary.ContainsKey(objectName)) return _poolDictionary[objectName].GetObject(spawnPoint);
+          if (_poolDictionary.ContainsKey(objectName)) return _poolDictionary[objectName].GetObject(spawnPoint , limitCount);
           DebugerEx.Logger($"{objectName} 풀이 존재하지 않습니다.", DebugerEx.DebugType.LogError);
           return null;
      }

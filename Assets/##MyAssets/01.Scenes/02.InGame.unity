@@ -440,8 +440,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerMovement: {fileID: 218999224}
-  playerModel: {fileID: 0}
-  moveSpeed: 5
+  playerModel: {fileID: 218999226}
 --- !u!114 &218999226
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -457,6 +456,7 @@ MonoBehaviour:
   <Attack>k__BackingField: {fileID: 218999223}
   <health>k__BackingField:
     value: 10
+  <MoveSpeed>k__BackingField: 2
 --- !u!1 &280966685
 GameObject:
   m_ObjectHideFlags: 0
@@ -502,8 +502,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <SpawnDelay>k__BackingField: 1
-  <EnemyPrefab>k__BackingField: {fileID: 0}
-  <spawnPoint>k__BackingField: {fileID: 0}
 --- !u!1 &332353959
 GameObject:
   m_ObjectHideFlags: 0
@@ -5112,7 +5110,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6606e96dc69fdd14090c8890ea481a53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefab: {fileID: 1580852674548618500, guid: a621f54f2b4a7f14888105e4000d0d24, type: 3}
+  prefab: {fileID: 6109440529560808314, guid: dce9f317950c79640b70fe0b9d664c0c, type: 3}
   parent: {fileID: 573661844}
   count: 10
   limitCount: 50
@@ -5147,6 +5145,7 @@ Transform:
   m_Children:
   - {fileID: 1350085676}
   - {fileID: 573661844}
+  - {fileID: 674417077}
   m_Father: {fileID: 1936786094}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5165,6 +5164,55 @@ MonoBehaviour:
   objectPool:
   - {fileID: 1350085677}
   - {fileID: 573661845}
+  - {fileID: 674417078}
+--- !u!1 &674417076
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 674417077}
+  - component: {fileID: 674417078}
+  m_Layer: 0
+  m_Name: Monster3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &674417077
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 674417076}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 674222439}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &674417078
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 674417076}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6606e96dc69fdd14090c8890ea481a53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 6109440529560808314, guid: da0c78d89527a8144833e5cbf681b029, type: 3}
+  parent: {fileID: 674417077}
+  count: 10
+  limitCount: 50
 --- !u!1 &825465639
 GameObject:
   m_ObjectHideFlags: 0
@@ -5210,8 +5258,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <SpawnDelay>k__BackingField: 1
-  <EnemyPrefab>k__BackingField: {fileID: 0}
-  <spawnPoint>k__BackingField: {fileID: 0}
 --- !u!1 &832405833
 GameObject:
   m_ObjectHideFlags: 0
@@ -9777,6 +9823,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnPointModel: {fileID: 1035020864}
+  limitCount: 4
 --- !u!1 &950851043
 GameObject:
   m_ObjectHideFlags: 0
@@ -9822,8 +9869,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <SpawnDelay>k__BackingField: 1
-  <EnemyPrefab>k__BackingField: {fileID: 0}
-  <spawnPoint>k__BackingField: {fileID: 0}
 --- !u!1 &960015130
 GameObject:
   m_ObjectHideFlags: 0
@@ -14861,8 +14906,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <SpawnDelay>k__BackingField: 1
-  <EnemyPrefab>k__BackingField: {fileID: 0}
-  <spawnPoint>k__BackingField: {fileID: 0}
 --- !u!1 &1507405440
 GameObject:
   m_ObjectHideFlags: 0
@@ -14986,8 +15029,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <SpawnDelay>k__BackingField: 1
-  <EnemyPrefab>k__BackingField: {fileID: 0}
-  <spawnPoint>k__BackingField: {fileID: 0}
 --- !u!1 &1649510111
 GameObject:
   m_ObjectHideFlags: 0
@@ -19637,8 +19678,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <SpawnDelay>k__BackingField: 1
-  <EnemyPrefab>k__BackingField: {fileID: 0}
-  <spawnPoint>k__BackingField: {fileID: 0}
 --- !u!1 &1917389844
 GameObject:
   m_ObjectHideFlags: 0
@@ -19684,8 +19723,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <SpawnDelay>k__BackingField: 1
-  <EnemyPrefab>k__BackingField: {fileID: 0}
-  <spawnPoint>k__BackingField: {fileID: 0}
 --- !u!1 &1936786093
 GameObject:
   m_ObjectHideFlags: 0
