@@ -2,9 +2,9 @@ using UnityEngine;
 
 public class MeleeAttack : AbstractAttack
 {
-    protected override void AttackImpl()
+    protected override void AttackImpl(string name)
     {
-        Debug.Log("Melee Attack");
+        Debug.Log($"{name} Melee Attack");
         //Damage calculate
     }
 }

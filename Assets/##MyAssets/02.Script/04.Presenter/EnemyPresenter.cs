@@ -1,4 +1,5 @@
 using System;
+using RNBUtil;
 using UniRx;
 using UniRx.Triggers;
 using UnityEngine;
@@ -25,12 +26,12 @@ public class EnemyPresenter : MonoBehaviour
         //     .Subscribe(_ => healthBar.fillAmount = model.health.Value / 100f)
         //     .AddTo(this);
         
-        // play attack animation when player is in attack range and 2 seconds later, attack to player
+        // play attack animation when every 2second and distance is less than 1
         this.UpdateAsObservable()
             .Where(_ => model.health.Value >= 0)
-            .Where(_ => Vector2.Distance(transform.position, player.transform.position) <= 1)
-            .Delay(TimeSpan.FromSeconds(2))
-            .Subscribe(_ => AIAttack())
+            .Where(_ =>  CalculDistance(player.transform.position,transform.position) < 1)
+            .ThrottleFirst(TimeSpan.FromSeconds(model.AttackDelay))
+            .Subscribe(_ => model.Attack.Attack())
             .AddTo(this);
     }
     
@@ -39,10 +40,13 @@ public class EnemyPresenter : MonoBehaviour
         // calculate distance for player and enemy
         var playerPosition = player.transform.position;
         var currentPosition = transform.position;
-        var distance = Mathf.Sqrt((playerPosition.x - currentPosition.x) * (playerPosition.x - currentPosition.x) +
-                                  (playerPosition.y - currentPosition.y) * (playerPosition.y - currentPosition.y));
+        var distance = CalculDistance(playerPosition, currentPosition);
         if (distance > 1) move.Movement((playerPosition - currentPosition).normalized, model.Speed);
     }
-
-    private void AIAttack() => model.Attack.Attack();
+    
+    private float CalculDistance(Vector3 playerPosition, Vector3 currentPosition)
+    {
+        return Mathf.Sqrt((playerPosition.x - currentPosition.x) * (playerPosition.x - currentPosition.x) +
+                          (playerPosition.y - currentPosition.y) * (playerPosition.y - currentPosition.y));
+    }
 }

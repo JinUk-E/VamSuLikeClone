@@ -152,8 +152,8 @@ MonoBehaviour:
   <State>k__BackingField: 0
   <health>k__BackingField:
     value: 0
-  <SpawnPoint>k__BackingField: {fileID: 0}
   <Speed>k__BackingField: 1
+  <AttackDelay>k__BackingField: 4
 --- !u!114 &2542602908728479806
 MonoBehaviour:
   m_ObjectHideFlags: 0

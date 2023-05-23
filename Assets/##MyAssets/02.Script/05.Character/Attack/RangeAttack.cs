@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class RangeAttack : AbstractAttack
 {
-    protected override void AttackImpl()
+    protected override void AttackImpl(string name)
     {
-        Debug.Log("Range Attack");
+        Debug.Log($"{name} Range Attack");
     }
 }

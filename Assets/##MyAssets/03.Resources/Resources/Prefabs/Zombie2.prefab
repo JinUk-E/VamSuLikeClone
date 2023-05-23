@@ -153,6 +153,7 @@ MonoBehaviour:
   <health>k__BackingField:
     value: 0
   <Speed>k__BackingField: 1
+  <AttackDelay>k__BackingField: 5
 --- !u!114 &2542602908728479806
 MonoBehaviour:
   m_ObjectHideFlags: 0
