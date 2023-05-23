@@ -10,5 +10,4 @@ public class SpawnPointModel : MonoBehaviour
         var randomIndex = Random.Range(0, SpawnList.Count);
         return SpawnList[randomIndex];
     }
-    public int GetSpawnPointCount() => SpawnList.Count;
 }
