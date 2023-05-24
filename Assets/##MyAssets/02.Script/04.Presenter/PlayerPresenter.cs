@@ -6,7 +6,8 @@ public class PlayerPresenter : MonoBehaviour
 {
     [SerializeField] private PlayerMovement playerMovement;
     [SerializeField] private Player playerModel;
-   
+    
+    // Player movement and Attack Stream for UniRx
     private void Start()
     {
         this.FixedUpdateAsObservable()
