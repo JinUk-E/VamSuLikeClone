@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using System.Linq;
 using RNBExtensions;
 using RNBUtil;
 using UnityEngine;
@@ -21,7 +20,7 @@ public class PoolingSystem : AtGameSingleton<PoolingSystem>
           // 풀 생성
           foreach (var model in objectPool)
           {
-               DebugerEx.Logger(model.name.Bold(), DebugerEx.DebugType.LogWarning);
+               DebugerEx.Logger(model.name.Bold(), DebugerEx.DebugType.Log);
                _poolDictionary.Add(model.name, model);
           }
                

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class LifeSystem : MonoBehaviour
+public class LifeSystem : AtSceneSingleton<LifeSystem>
 {
    // Checking Life for Enemy
    public static bool CheckLife(GameObject obj, int life)
